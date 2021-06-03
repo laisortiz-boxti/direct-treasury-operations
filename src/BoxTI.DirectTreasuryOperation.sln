@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31129.286
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BoxTI.DirectTreasuryOperation.API", "BoxTI.DirectTreasuryOperation\BoxTI.DirectTreasuryOperation.API.csproj", "{4FF21A48-09AB-4199-B444-16ABD93A87AB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BoxTI.DirectTreasuryOperation.API.Client", "BoxTI.DirectTreasuryOperation.API.Client\BoxTI.DirectTreasuryOperation.API.Client.csproj", "{612AA5C0-067E-4912-A5CF-23A3B20A8765}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BoxTI.DirectTreasuryOperation.API.Models", "BoxTI.DirectTreasuryOperation.API.Models\BoxTI.DirectTreasuryOperation.API.Models.csproj", "{FC2551F2-FB93-4C3B-B84C-1B8906AC58AC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BoxTI.DirectTreasuryOperation.Services", "BoxTI.DirectTreasuryOperation.Services\BoxTI.DirectTreasuryOperation.Services.csproj", "{B339A12A-0644-4858-B47C-67AC38F4E2BA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BoxTI.DirectTreasuryOperation.Data", "BoxTI.DirectTreasuryOperation.Data\BoxTI.DirectTreasuryOperation.Data.csproj", "{5EA2CCD2-FFAF-421E-BCDF-FF3A47513768}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4FF21A48-09AB-4199-B444-16ABD93A87AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4FF21A48-09AB-4199-B444-16ABD93A87AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4FF21A48-09AB-4199-B444-16ABD93A87AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4FF21A48-09AB-4199-B444-16ABD93A87AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{612AA5C0-067E-4912-A5CF-23A3B20A8765}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{612AA5C0-067E-4912-A5CF-23A3B20A8765}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{612AA5C0-067E-4912-A5CF-23A3B20A8765}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{612AA5C0-067E-4912-A5CF-23A3B20A8765}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC2551F2-FB93-4C3B-B84C-1B8906AC58AC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC2551F2-FB93-4C3B-B84C-1B8906AC58AC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC2551F2-FB93-4C3B-B84C-1B8906AC58AC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC2551F2-FB93-4C3B-B84C-1B8906AC58AC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B339A12A-0644-4858-B47C-67AC38F4E2BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B339A12A-0644-4858-B47C-67AC38F4E2BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B339A12A-0644-4858-B47C-67AC38F4E2BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B339A12A-0644-4858-B47C-67AC38F4E2BA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5EA2CCD2-FFAF-421E-BCDF-FF3A47513768}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5EA2CCD2-FFAF-421E-BCDF-FF3A47513768}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5EA2CCD2-FFAF-421E-BCDF-FF3A47513768}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5EA2CCD2-FFAF-421E-BCDF-FF3A47513768}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0618D021-59C6-4FFC-A3D5-DCAE1EE9F68C}
+	EndGlobalSection
+EndGlobal
