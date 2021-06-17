@@ -1,5 +1,6 @@
 ﻿using BoxTI.DirectTreasuryOperation.API.Models.Entities;
 using Microsoft.EntityFrameworkCore;
+using System.Reflection;
 
 namespace BoxTI.DirectTreasuryOperation.Data
 {
@@ -13,9 +14,9 @@ namespace BoxTI.DirectTreasuryOperation.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.ApplyConfigurationsFromAssembly(typeof(DirectTreasuryContext).Assembly);
-
-            base.OnModelCreating(modelBuilder);
+            modelBuilder.ApplyConfigurationsFromAssembly(
+                Assembly.GetExecutingAssembly()
+            );
         }
     }
 }
