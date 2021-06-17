@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using BoxTI.DirectTreasuryOperation.Services.DirectTreasuryOperation;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
 namespace BoxTI.DirectTreasuryOperation.Controllers
@@ -7,16 +8,17 @@ namespace BoxTI.DirectTreasuryOperation.Controllers
     [Route("[controller]")]
     public class DirectTreasuryOperationController : ControllerBase
     {
-        private static readonly string[] Summaries = new[]
-        {
-            "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-        };
-
         private readonly ILogger<DirectTreasuryOperationController> _logger;
+        private readonly IDirectTreasuryOperationService _directTreasuryOperationService;
 
         public DirectTreasuryOperationController(ILogger<DirectTreasuryOperationController> logger)
         {
             _logger = logger;
+        }
+
+        public IActionResult Get()
+        {
+
         }
     }
 }

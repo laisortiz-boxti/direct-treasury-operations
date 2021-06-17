@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BoxTI.DirectTreasuryOperation.Services.DirectTreasuryOperation
+namespace BoxTI.DirectTreasuryOperation.Services
 {
-    interface IDirectTreasuryOperationService
+    public interface IDirectTreasuryOperationService
     {
     }
 }

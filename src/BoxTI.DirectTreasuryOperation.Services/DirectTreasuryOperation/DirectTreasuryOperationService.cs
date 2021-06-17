@@ -1,12 +1,13 @@
-﻿using System;
+﻿using BoxTI.DirectTreasuryOperation.API.Models.Entities;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace BoxTI.DirectTreasuryOperation.Services.DirectTreasuryOperation
+namespace BoxTI.DirectTreasuryOperation.Services
 {
-    class DirectTreasuryOperationService
+    public class DirectTreasuryOperationService : IDirectTreasuryOperationService
     {
+        public IEnumerable<DirectTreasuryOperations> Get()
+        {
+
+        }
     }
 }

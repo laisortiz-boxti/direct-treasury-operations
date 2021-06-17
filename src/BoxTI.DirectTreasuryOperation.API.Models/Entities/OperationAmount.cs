@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BoxTI.DirectTreasuryOperation.API.Models.Entities
 {
-    class OperationAmount
+    public class OperationAmount
     {
     }
 }
