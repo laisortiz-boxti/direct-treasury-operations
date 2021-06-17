@@ -5,7 +5,18 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="DirectTreasuryOperations\" />
+    <Compile Remove="DirectTreasuryOperations\**" />
+    <EmbeddedResource Remove="DirectTreasuryOperations\**" />
+    <None Remove="DirectTreasuryOperations\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.7" />
+    <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="5.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BoxTI.DirectTreasuryOperation.API.Models\BoxTI.DirectTreasuryOperation.API.Models.csproj" />
   </ItemGroup>
 
 </Project>

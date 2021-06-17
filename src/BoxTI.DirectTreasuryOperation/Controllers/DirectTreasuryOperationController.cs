@@ -1,4 +1,4 @@
-﻿using BoxTI.DirectTreasuryOperation.Services.DirectTreasuryOperation;
+﻿using BoxTI.DirectTreasuryOperation.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 

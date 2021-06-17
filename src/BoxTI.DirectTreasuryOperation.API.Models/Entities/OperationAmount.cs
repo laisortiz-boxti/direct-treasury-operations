@@ -1,12 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BoxTI.DirectTreasuryOperation.API.Models.Entities
 {
     public class OperationAmount
     {
+        public decimal AmountDifference { get; set; }
+        public DateTime IniitalOperationDate { get; set; }
+        public DateTime FinalOperationDate { get; set; }
     }
 }
