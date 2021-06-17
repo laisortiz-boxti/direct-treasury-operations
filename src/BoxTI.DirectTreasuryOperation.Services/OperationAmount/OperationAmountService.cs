@@ -1,12 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using BoxTI.DirectTreasuryOperation.API.Models.Entities;
+using BoxTI.DirectTreasuryOperation.Data.Interfaces;
 
 namespace BoxTI.DirectTreasuryOperation.Services.OperationAmount
 {
-    class OperationAmountService
+    public class OperationAmountService : IOperationAmountService
     {
+        private readonly IOperationAmountRepository _operationAmountRepository;
+
+        public void Add(OperationAmounts entity)
+        {
+            _operationAmountRepository.Add(entity);
+        }
     }
 }

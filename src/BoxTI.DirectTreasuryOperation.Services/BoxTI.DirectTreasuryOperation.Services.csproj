@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\BoxTI.DirectTreasuryOperation.API.Models\BoxTI.DirectTreasuryOperation.API.Models.csproj" />
+    <ProjectReference Include="..\BoxTI.DirectTreasuryOperation.Data\BoxTI.DirectTreasuryOperation.Data.csproj" />
   </ItemGroup>
 
 </Project>

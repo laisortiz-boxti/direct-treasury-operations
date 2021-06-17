@@ -4,11 +4,11 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace BoxTI.DirectTreasuryOperation.Data.Mappings
 {
-    public class OperationAmountMap : IEntityTypeConfiguration<OperationAmount>
+    public class OperationAmountMap : IEntityTypeConfiguration<OperationAmounts>
     {
-        public void Configure(EntityTypeBuilder<OperationAmount> builder)
+        public void Configure(EntityTypeBuilder<OperationAmounts> builder)
         {
-            builder.ToTable("OperationAmount");
+            builder.ToTable("OperationAmounts");
             
             builder.HasNoKey();
 
@@ -16,7 +16,7 @@ namespace BoxTI.DirectTreasuryOperation.Data.Mappings
             
             builder.Property(x => x.FinalOperationDate).HasColumnType("date").IsRequired();
             
-            builder.Property(x => x.IniitalOperationDate).HasColumnType("date").IsRequired();
+            builder.Property(x => x.InitialOperationDate).HasColumnType("date").IsRequired();
         }
     }
 }

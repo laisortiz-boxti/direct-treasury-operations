@@ -1,25 +1,26 @@
 ﻿using BoxTI.DirectTreasuryOperation.API.Models.Entities;
 using BoxTI.DirectTreasuryOperation.Data.Interfaces;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BoxTI.DirectTreasuryOperation.Data.Repositories
 {
-    class OperationAmountRepository : IOperationAmountRepository
+    public class DirectTreasuryOperationRepository : IDirectTreasuryOperationRepository
     {
         private readonly DirectTreasuryContext _context;
 
-        public OperationAmountRepository(DirectTreasuryContext context)
+        public DirectTreasuryOperationRepository(DirectTreasuryContext context)
         {
             _context = context;
         }
 
-        public void Add(OperationAmounts entity)
+        public void Add(DirectTreasuryOperations entity)
         {
             _context.Add(entity);
+        }
+
+        public IEnumerable<DirectTreasuryOperations> Get()
+        {
+            return _context.Set<DirectTreasuryOperations>();
         }
     }
 }

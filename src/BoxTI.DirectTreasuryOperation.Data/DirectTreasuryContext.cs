@@ -10,7 +10,7 @@ namespace BoxTI.DirectTreasuryOperation.Data
         { }
 
         public DbSet<DirectTreasuryOperations> Operations { get; set; }
-        public DbSet<OperationAmount> OperationsAmount { get; set; }
+        public DbSet<OperationAmounts> OperationsAmount { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

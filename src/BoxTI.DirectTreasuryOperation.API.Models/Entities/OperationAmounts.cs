@@ -2,10 +2,10 @@
 
 namespace BoxTI.DirectTreasuryOperation.API.Models.Entities
 {
-    public class OperationAmount
+    public class OperationAmounts
     {
         public decimal AmountDifference { get; set; }
-        public DateTime IniitalOperationDate { get; set; }
+        public DateTime InitialOperationDate { get; set; }
         public DateTime FinalOperationDate { get; set; }
     }
 }
