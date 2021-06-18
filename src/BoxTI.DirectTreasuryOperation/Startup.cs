@@ -1,16 +1,18 @@
+using BoxTI.DirectTreasuryOperation.Data;
+using BoxTI.DirectTreasuryOperation.Data.Interfaces;
+using BoxTI.DirectTreasuryOperation.Data.Repositories;
+using BoxTI.DirectTreasuryOperation.Services;
+using BoxTI.DirectTreasuryOperation.Services.OperationAmount;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace BoxTI.DirectTreasuryOperation
 {
@@ -23,22 +25,37 @@ namespace BoxTI.DirectTreasuryOperation
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "BoxTI.DirectTreasuryOperation", Version = "v1" });
             });
 
-            Configuration.GetConnectionString("DefaultConnection");
+            services.AddScoped<IDirectTreasuryRepository, DirectTreasuryRepository>();
+            services.AddScoped<IDirectTreasuryOperationService, DirectTreasuryOperationService>();
+
+            services.AddScoped<IOperationAmountRepository, OperationAmountRepository>();
+            services.AddScoped<IOperationAmountService, OperationAmountService>();
+            services.AddDbContext<DirectTreasuryContext>();
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            using (var db = new DirectTreasuryContext())
+            {
+                try
+                {
+                    db.Database.Migrate();
+                }
+                
+                catch (System.Exception)
+                {
+                    db.Database.EnsureCreated();
+                }
+            }
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

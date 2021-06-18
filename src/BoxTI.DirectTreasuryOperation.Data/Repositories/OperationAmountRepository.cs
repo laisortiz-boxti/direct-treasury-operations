@@ -1,13 +1,9 @@
 ﻿using BoxTI.DirectTreasuryOperation.API.Models.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using BoxTI.DirectTreasuryOperation.Data.Interfaces;
 
 namespace BoxTI.DirectTreasuryOperation.Data.Repositories
 {
-    class OperationAmountRepository
+    public class OperationAmountRepository : IOperationAmountRepository
     {
         private readonly DirectTreasuryContext _context;
 
@@ -16,9 +12,10 @@ namespace BoxTI.DirectTreasuryOperation.Data.Repositories
             _context = context;
         }
 
-        public void Add(OperationAmount entity)
+        public void Add(OperationsAmount entity)
         {
             _context.Add(entity);
+            _context.SaveChanges();
         }
     }
 }

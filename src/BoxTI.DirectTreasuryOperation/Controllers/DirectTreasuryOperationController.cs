@@ -1,4 +1,5 @@
-﻿using BoxTI.DirectTreasuryOperation.Services;
+﻿using BoxTI.DirectTreasuryOperation.API.Models.Entities;
+using BoxTI.DirectTreasuryOperation.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
@@ -11,14 +12,23 @@ namespace BoxTI.DirectTreasuryOperation.Controllers
         private readonly ILogger<DirectTreasuryOperationController> _logger;
         private readonly IDirectTreasuryOperationService _directTreasuryOperationService;
 
-        public DirectTreasuryOperationController(ILogger<DirectTreasuryOperationController> logger)
+        public DirectTreasuryOperationController(ILogger<DirectTreasuryOperationController> logger, IDirectTreasuryOperationService service)
         {
             _logger = logger;
+            _directTreasuryOperationService = service;
         }
 
-        public IActionResult Get()
+        [HttpPost]
+        public IActionResult Save()
         {
+            _directTreasuryOperationService.GetCsvFileAndSave();
+            return Ok(new { message = "Success" });
+        }
 
+        [HttpDelete("{id}")]
+        public void Delete(string id)
+        {
+            _directTreasuryOperationService.Delete(id);
         }
     }
 }

@@ -5,7 +5,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="CsvHelper" Version="27.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\BoxTI.DirectTreasuryOperation.API.Models\BoxTI.DirectTreasuryOperation.API.Models.csproj" />
+    <ProjectReference Include="..\BoxTI.DirectTreasuryOperation.Data\BoxTI.DirectTreasuryOperation.Data.csproj" />
   </ItemGroup>
 
 </Project>

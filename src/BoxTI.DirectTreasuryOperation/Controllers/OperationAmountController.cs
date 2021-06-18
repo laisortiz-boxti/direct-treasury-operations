@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using BoxTI.DirectTreasuryOperation.Services.OperationAmount;
+using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -9,11 +10,18 @@ namespace BoxTI.DirectTreasuryOperation.API.Controllers
     [ApiController]
     public class OperationAmountController : ControllerBase
     {
-        // GET: api/<OperationAmountController>
-        [HttpGet]
-        public IEnumerable<string> Get()
+        private readonly IOperationAmountService _operationAmountService;
+
+        public OperationAmountController(IOperationAmountService service)
         {
-            return new string[] { "value1", "value2" };
+            _operationAmountService = service;
+        }
+
+        [HttpPost]
+        public IActionResult Save()
+        {
+            _operationAmountService.Add();
+            return Ok();
         }
 
         // GET api/<OperationAmountController>/5
@@ -21,12 +29,6 @@ namespace BoxTI.DirectTreasuryOperation.API.Controllers
         public string Get(int id)
         {
             return "value";
-        }
-
-        // POST api/<OperationAmountController>
-        [HttpPost]
-        public void Post([FromBody] string value)
-        {
         }
 
         // PUT api/<OperationAmountController>/5
