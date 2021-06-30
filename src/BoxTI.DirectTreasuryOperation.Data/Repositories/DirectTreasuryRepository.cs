@@ -1,8 +1,11 @@
-﻿using BoxTI.DirectTreasuryOperation.API.Models.Entities;
+﻿using BoxTI.DirectTreasuryOperation.API.Client.Exceptions;
+using BoxTI.DirectTreasuryOperation.API.Models.Entities;
 using BoxTI.DirectTreasuryOperation.Data.Interfaces;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
-using System.Linq;
+using System.Linq.Expressions;
+using System.Threading.Tasks;
 
 namespace BoxTI.DirectTreasuryOperation.Data.Repositories
 {
@@ -15,26 +18,45 @@ namespace BoxTI.DirectTreasuryOperation.Data.Repositories
             _context = context;
         }
 
-        public void Add(DirectTreasuryOperations entity)
+        public async Task AddAsync(DirectTreasuryOperations entity)
         {
-            _context.Add(entity);
-            _context.SaveChanges();
+            await _context.DirectTreasuryOperations.AddAsync(entity);
+            await _context.SaveChangesAsync();
         }
 
-        public DirectTreasuryOperations Get(Func<DirectTreasuryOperations, bool> predicate)
+        public async Task AddRangeAsync(IList<DirectTreasuryOperations> entities)
         {
-            return _context.DirectTreasuryOperations.FirstOrDefault(predicate);
+            await _context.DirectTreasuryOperations.AddRangeAsync(entities);
+            await _context.SaveChangesAsync();
         }
 
-        public IEnumerable<DirectTreasuryOperations> All()
+        public async Task AddRangeAsync(IEnumerable<DirectTreasuryOperations> entities)
         {
-            return _context.DirectTreasuryOperations.OrderBy(x => x.OperationAmount);
+            await _context.DirectTreasuryOperations.AddRangeAsync(entities);
+            await _context.SaveChangesAsync();
         }
 
-        public void Delete(DirectTreasuryOperations entity)
+        public async Task<DirectTreasuryOperations> GetAsync(Expression<Func<DirectTreasuryOperations, bool>> predicate)
         {
+            return await _context.DirectTreasuryOperations.FirstOrDefaultAsync(predicate) ?? throw new NotFoundException("Entity not founded.");
+        }
+
+        public IEnumerable<DirectTreasuryOperations> GetAll()
+        {
+            return _context.DirectTreasuryOperations;
+        }
+
+        public async Task UpdateAsync(DirectTreasuryOperations entityToUpdate)
+        {
+            _context.DirectTreasuryOperations.Update(entityToUpdate);
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task DeleteAsync(string id)
+        {
+            var entity = await GetAsync(x => x.Id == id);
             _context.DirectTreasuryOperations.Remove(entity);
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
         }
     }
 }

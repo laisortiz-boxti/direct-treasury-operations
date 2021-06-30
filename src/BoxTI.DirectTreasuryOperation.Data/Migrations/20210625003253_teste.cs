@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace BoxTI.DirectTreasuryOperation.Data.Migrations
 {
-    public partial class initialCreate : Migration
+    public partial class teste : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -29,13 +29,14 @@ namespace BoxTI.DirectTreasuryOperation.Data.Migrations
                 name: "OperationsAmount",
                 columns: table => new
                 {
+                    Id = table.Column<string>(type: "varchar(767)", nullable: false),
                     AmountDifference = table.Column<decimal>(type: "decimal(18, 2)", precision: 20, scale: 10, nullable: false),
                     InitialOperationDate = table.Column<DateTime>(type: "date", nullable: false),
                     FinalOperationDate = table.Column<DateTime>(type: "date", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_OperationsAmount", x => x.AmountDifference);
+                    table.PrimaryKey("PK_OperationsAmount", x => x.Id);
                 });
         }
 

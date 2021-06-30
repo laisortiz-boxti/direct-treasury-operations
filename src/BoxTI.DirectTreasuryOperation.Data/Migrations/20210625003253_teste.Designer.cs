@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BoxTI.DirectTreasuryOperation.Data.Migrations
 {
     [DbContext(typeof(DirectTreasuryContext))]
-    [Migration("20210618204000_initialCreate")]
-    partial class initialCreate
+    [Migration("20210625003253_teste")]
+    partial class teste
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -55,6 +55,9 @@ namespace BoxTI.DirectTreasuryOperation.Data.Migrations
 
             modelBuilder.Entity("BoxTI.DirectTreasuryOperation.API.Models.Entities.OperationsAmount", b =>
                 {
+                    b.Property<string>("Id")
+                        .HasColumnType("varchar(767)");
+
                     b.Property<decimal>("AmountDifference")
                         .HasPrecision(20, 10)
                         .HasColumnType("decimal(18, 2)");
@@ -65,7 +68,7 @@ namespace BoxTI.DirectTreasuryOperation.Data.Migrations
                     b.Property<DateTime>("InitialOperationDate")
                         .HasColumnType("date");
 
-                    b.HasKey("AmountDifference");
+                    b.HasKey("Id");
 
                     b.ToTable("OperationsAmount");
                 });

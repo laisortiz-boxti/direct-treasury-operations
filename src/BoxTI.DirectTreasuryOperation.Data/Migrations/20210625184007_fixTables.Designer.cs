@@ -3,14 +3,16 @@ using System;
 using BoxTI.DirectTreasuryOperation.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace BoxTI.DirectTreasuryOperation.Data.Migrations
 {
     [DbContext(typeof(DirectTreasuryContext))]
-    partial class DirectTreasuryContextModelSnapshot : ModelSnapshot
+    [Migration("20210625184007_fixTables")]
+    partial class fixTables
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

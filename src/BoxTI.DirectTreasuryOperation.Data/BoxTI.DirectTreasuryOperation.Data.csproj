@@ -23,6 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\BoxTI.DirectTreasuryOperation.API.Client\BoxTI.DirectTreasuryOperation.API.Client.csproj" />
     <ProjectReference Include="..\BoxTI.DirectTreasuryOperation.API.Models\BoxTI.DirectTreasuryOperation.API.Models.csproj" />
   </ItemGroup>
 

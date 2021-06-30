@@ -12,6 +12,7 @@ services:
       - '3306:3306'
     volumes:
       - my-db:/var/lib/mysql
+
   redis:
     container_name: REDIS
     image: redis

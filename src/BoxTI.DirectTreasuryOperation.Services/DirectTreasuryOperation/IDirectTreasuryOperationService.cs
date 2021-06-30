@@ -1,14 +1,18 @@
 ﻿using BoxTI.DirectTreasuryOperation.API.Models.Entities;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace BoxTI.DirectTreasuryOperation.Services
 {
     public interface IDirectTreasuryOperationService
     {
-        void GetCsvFileAndSave();
-        void Add(DirectTreasuryOperations entity);
-        IEnumerable<DirectTreasuryOperations> All();
-        DirectTreasuryOperations Get(string id);
-        void Delete(string id);
+        void GetCsvFile();
+        Task Add(DirectTreasuryOperations entity);
+        Task Update(DirectTreasuryOperations entity);
+
+        IEnumerable<DirectTreasuryOperations> GetAll();
+        Task<DirectTreasuryOperations> Get(string id);
+
+        Task Delete(string id);
     }
 }

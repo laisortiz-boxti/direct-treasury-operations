@@ -5,14 +5,14 @@ using System.Collections.Generic;
 using CsvHelper;
 using System.IO;
 using System.Globalization;
-using System.Linq;
 using BoxTI.DirectTreasuryOperation.API.Models.DTO;
+using System.Threading.Tasks;
 
 namespace BoxTI.DirectTreasuryOperation.Services
 {
-    
     public class DirectTreasuryOperationService : IDirectTreasuryOperationService
     {
+        private readonly string _path = @"~\OperacoesTesouroDireto.csv".ParseHome();
         private readonly IDirectTreasuryRepository _directTreasuryOperationRepository;
 
         public DirectTreasuryOperationService(IDirectTreasuryRepository repository)
@@ -20,41 +20,41 @@ namespace BoxTI.DirectTreasuryOperation.Services
             _directTreasuryOperationRepository = repository;
         }
 
-        public void GetCsvFileAndSave()
+        public void GetCsvFile()
         {
-            var path = @"~\OperacoesTesouroDireto.csv".ParseHome();
-
-            using (var streamReader = new StreamReader(path))
+            using (var streamReader = new StreamReader(_path))
             {
                 using var csvReader = new CsvReader(streamReader, CultureInfo.InvariantCulture);
                 csvReader.Context.RegisterClassMap<DirectTreasuryOperationsDTO>();
+                var results = csvReader.GetRecords<DirectTreasuryOperations>();
 
-                while (csvReader.Read())
-                {
-                    Add(csvReader.GetRecord<DirectTreasuryOperations>());
-                }
+                _directTreasuryOperationRepository.AddRangeAsync(results);
             }
         }
 
-        public void Add(DirectTreasuryOperations entity)
+        public async Task Add(DirectTreasuryOperations entity)
         {
-            _directTreasuryOperationRepository.Add(entity);
+            await _directTreasuryOperationRepository.AddAsync(entity);
         }
 
-        public IEnumerable<DirectTreasuryOperations> All()
+        public IEnumerable<DirectTreasuryOperations> GetAll()
         {
-            return _directTreasuryOperationRepository.All();
+            return _directTreasuryOperationRepository.GetAll();
         }
 
-        public DirectTreasuryOperations Get(string id)
+        public async Task Update(DirectTreasuryOperations entity)
         {
-            return _directTreasuryOperationRepository.Get(x => x.Id == id);
+            await _directTreasuryOperationRepository.UpdateAsync(entity);
         }
 
-        public void Delete(string id)
+        public async Task<DirectTreasuryOperations> Get(string id)
         {
-            var entity = _directTreasuryOperationRepository.Get(x => x.Id == id);
-            _directTreasuryOperationRepository.Delete(entity);
+            return await _directTreasuryOperationRepository.GetAsync(x => x.Id == id);
+        }
+
+        public async Task Delete(string id)
+        {
+            await _directTreasuryOperationRepository.DeleteAsync(id);
         }
     }
 }

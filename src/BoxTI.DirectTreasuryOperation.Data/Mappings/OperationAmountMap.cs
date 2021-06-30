@@ -8,7 +8,7 @@ namespace BoxTI.DirectTreasuryOperation.Data.Mappings
     {
         public void Configure(EntityTypeBuilder<OperationsAmount> builder)
         {
-            builder.HasKey(x => x.AmountDifference);
+            builder.HasKey(x => x.Id);
 
             builder.Property(x => x.AmountDifference).HasPrecision(20, 10).IsRequired();
             

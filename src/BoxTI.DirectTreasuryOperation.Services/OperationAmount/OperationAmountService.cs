@@ -1,9 +1,7 @@
 ﻿using BoxTI.DirectTreasuryOperation.API.Models.Entities;
 using BoxTI.DirectTreasuryOperation.Data.Interfaces;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace BoxTI.DirectTreasuryOperation.Services.OperationAmount
@@ -19,22 +17,38 @@ namespace BoxTI.DirectTreasuryOperation.Services.OperationAmount
             _operationAmountRepository = repository;
         }
 
-        private IEnumerable<(decimal amountDifference, DateTime initialOperationDate, DateTime finalOperationDate)> GetDirectTreasuryData()
+        public async Task AddAsync()
         {
-            return _directTreasuryOperationService.All().Select(x => (x.OperationAmount, x.OperationDate, x.TitleMaturityDate));
+            var response = _directTreasuryOperationService.GetAll();
+            
+            var data = response.Select(x => new OperationsAmount(x.OperationAmount, x.OperationDate, x.TitleMaturityDate));
+            
+            await _operationAmountRepository.AddRangeAsync(data);
         }
 
-        public void Add()
+        public async Task AddAsync(OperationsAmount entity)
         {
-            foreach (var (amountDifference, initialOperationDate, finalOperationDate) in GetDirectTreasuryData())
-            {
-                _operationAmountRepository.Add(new OperationsAmount(amountDifference, initialOperationDate, finalOperationDate));
-            }
+            await _operationAmountRepository.AddAsync(entity);
         }
 
-        public void Add(OperationsAmount entity)
+        public IEnumerable<OperationsAmount> GetAll()
         {
-            _operationAmountRepository.Add(entity);
+            return _operationAmountRepository.GetAll();
+        }
+
+        public async Task<OperationsAmount> GetAsync(string id)
+        {
+            return await _operationAmountRepository.GetAsync(x => x.Id == id);
+        }
+
+        public async Task DeleteAsync(string id)
+        {
+            await _operationAmountRepository.DeleteAsync(id);
+        }
+
+        public async Task UpdateAsync(OperationsAmount entity)
+        {
+            await _operationAmountRepository.UpdateAsync(entity);
         }
     }
 }

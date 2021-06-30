@@ -1,8 +1,9 @@
-﻿using System;
+﻿using BoxTI.DirectTreasuryOperation.API.Models.Common;
+using System;
 
 namespace BoxTI.DirectTreasuryOperation.API.Models.Entities
 {
-    public class OperationsAmount
+    public class OperationsAmount : Entity
     {
         public decimal AmountDifference { get; set; }
         public DateTime InitialOperationDate { get; set; }

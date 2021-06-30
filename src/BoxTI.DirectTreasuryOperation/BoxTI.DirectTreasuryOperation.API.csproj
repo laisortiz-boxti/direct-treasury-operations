@@ -5,10 +5,21 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="DependencyInjection\**" />
+    <Content Remove="DependencyInjection\**" />
+    <EmbeddedResource Remove="DependencyInjection\**" />
+    <None Remove="DependencyInjection\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="10.1.1" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.1" />
+    <PackageReference Include="FluentValidation.AspNetCore" Version="10.2.3" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.1.4" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\BoxTI.DirectTreasuryOperation.API.Client\BoxTI.DirectTreasuryOperation.API.Client.csproj" />
     <ProjectReference Include="..\BoxTI.DirectTreasuryOperation.Services\BoxTI.DirectTreasuryOperation.Services.csproj" />
   </ItemGroup>
 

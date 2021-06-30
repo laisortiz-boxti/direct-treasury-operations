@@ -1,7 +1,6 @@
 ﻿using BoxTI.DirectTreasuryOperation.API.Models.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BoxTI.DirectTreasuryOperation.Data.Mappings
 {

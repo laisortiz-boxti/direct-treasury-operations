@@ -1,14 +1,10 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Text.Json.Serialization;
+﻿using BoxTI.DirectTreasuryOperation.API.Models.Common;
+using System;
 
 namespace BoxTI.DirectTreasuryOperation.API.Models.Entities
 {
-    public class DirectTreasuryOperations
+    public class DirectTreasuryOperations : Entity
     {
-        [JsonIgnore]
-        public string Id { get; set; } = Guid.NewGuid().ToString();
-
         public int InvestorCode { get; set; }
         public DateTime OperationDate { get; set; }
         public string TitleType { get; set; }
