@@ -39,6 +39,8 @@ namespace BoxTI.DirectTreasuryOperation
             //services.AddAutoMapper(typeof(Startup));
             services.AddAutoMapperConfiguration();
 
+            services.AddCacheConfiguration(Configuration);
+
             //services.AddExceptionHandlingConfiguration();
 
             services.AddScoped<IDirectTreasuryRepository, DirectTreasuryRepository>();

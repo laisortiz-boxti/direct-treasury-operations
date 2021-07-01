@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using BoxTI.DirectTreasuryOperation.API.Cache;
 using BoxTI.DirectTreasuryOperation.API.Client.ApiResponses;
 using BoxTI.DirectTreasuryOperation.API.Models.Entities;
 using BoxTI.DirectTreasuryOperation.API.Models.Requests;
@@ -40,6 +41,7 @@ namespace BoxTI.DirectTreasuryOperation.API.Controllers
         }
 
         [HttpGet(APIRoutes.OperationsAmountRoutes.GetAll)]
+        [Cached(60)]
         public IActionResult GetAll()
         {
             var entities = _operationAmountService.GetAll();
